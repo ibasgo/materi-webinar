@@ -2,31 +2,25 @@ id,age,relig,ped,income,am,reason,bps,bpd,wt,ht
 1,37,buddhist,primary school,<1.000,20,birth spacing,120,80,57,153
 2,32,buddhist,vocational school,5.000 - 9.999,19,birth spacing,120,80,40.7,141
 3,24,buddhist,other,1.000 - 4.999,23,enough children,110,70,55.1,156
-4,33,buddhist,primary school,10,23,birth spacing,120,80,43,154
 5,31,buddhist,primary school,<1.000,22,other,130,70,58.5,154
 6,30,buddhist,primary school,1.000 - 4.999,17,birth spacing,120,90,40,154
 7,26,buddhist,vocational school,1.000 - 4.999,23,enough children,110,70,45,150
 8,25,buddhist,primary school,nil,17,birth spacing,90,60,48.7,156
 9,21,muslim,high school,nil,19,enough children,120,60,47.9,152
-10,36,buddhist,university,10,31,birth spacing,90,60,51.9,156
 11,30,buddhist,primary school,<1.000,21,birth spacing,100,60,55,154
 12,28,buddhist,primary school,1.000 - 4.999,19,birth spacing,100,60,44,153
 13,22,buddhist,secondary school,nil,18,birth spacing,110,70,50,150
 14,28,muslim,university,1.000 - 4.999,25,birth spacing,120,70,64.5,158
-15,32,buddhist,university,10,25,enough children,120,70,51.4,155
 16,28,buddhist,primary school,<1.000,20,birth spacing,120,80,50.7,158
 17,22,buddhist,vocational school,nil,20,enough children,110,80,52,156
-18,30,buddhist,primary school,10,20,birth spacing,140,90,43.2,150
 19,26,buddhist,university,1.000 - 4.999,22,enough children,110,70,51.5,155
 20,26,buddhist,other,5.000 - 9.999,25,enough children,110,70,44,153
-21,34,buddhist,primary school,10,20,birth spacing,110,80,42.8,148
 22,33,buddhist,primary school,<1.000,27,other,110,70,52.3,154
 23,32,buddhist,university,5.000 - 9.999,19,birth spacing,110,60,53.7,154
 24,30,buddhist,secondary school,nil,28,birth spacing,110,60,62.5,150
 25,24,muslim,secondary school,1.000 - 4.999,16,enough children,100,70,64.2,162
 26,36,buddhist,primary school,5.000 - 9.999,20,birth spacing,100,70,56,156
 27,22,buddhist,university,1.000 - 4.999,20,birth spacing,90,60,44.7,154
-28,32,buddhist,university,10,24,birth spacing,110,70,51.2,152
 29,30,muslim,other,<1.000,22,enough children,110,70,64.7,157
 31,22,buddhist,high school,<1.000,21,enough children,90,60,42.5,154
 32,27,buddhist,secondary school,nil,24,enough children,120,80,62.9,159
@@ -39,7 +33,6 @@ id,age,relig,ped,income,am,reason,bps,bpd,wt,ht
 39,25,buddhist,primary school,<1.000,18,birth spacing,90,60,48.6,160
 40,27,buddhist,primary school,nil,19,enough children,90,60,51.1,158
 41,24,buddhist,primary school,<1.000,19,enough children,110,70,54.1,161
-42,32,buddhist,secondary school,10,24,birth spacing,120,70,50,150
 43,28,muslim,university,1.000 - 4.999,21,enough children,110,70,47,147
 44,30,buddhist,other,5.000 - 9.999,22,birth spacing,120,70,57,163
 45,22,buddhist,secondary school,<1.000,18,birth spacing,110,80,54,155
@@ -67,7 +60,6 @@ id,age,relig,ped,income,am,reason,bps,bpd,wt,ht
 69,24,buddhist,secondary school,nil,18,birth spacing,130,90,56.1,157
 70,21,buddhist,vocational school,nil,18,other,130,70,56.7,156
 71,26,buddhist,secondary school,1.000 - 4.999,19,birth spacing,110,60,50.1,167
-72,24,buddhist,vocational school,10,24,enough children,110,70,45,155
 73,28,buddhist,other,5.000 - 9.999,22,enough children,110,70,54,154
 74,26,buddhist,primary school,<1.000,18,birth spacing,130,80,62.4,157
 75,24,buddhist,university,1.000 - 4.999,22,enough children,120,60,52.6,154
@@ -88,14 +80,11 @@ id,age,relig,ped,income,am,reason,bps,bpd,wt,ht
 91,26,buddhist,primary school,nil,17,birth spacing,110,70,47.6,157
 92,21,buddhist,primary school,nil,18,enough children,120,80,52,147
 93,24,buddhist,university,1.000 - 4.999,20,enough children,120,80,47,156
-95,30,buddhist,0,<1.000,18,birth spacing,120,80,63.7,163
 96,26,buddhist,primary school,nil,17,birth spacing,120,80,60.8,162
-97,25,buddhist,university,10,23,enough children,110,60,59.3,149
 98,24,buddhist,vocational school,<1.000,22,enough children,110,80,44,155
 100,21,buddhist,secondary school,1.000 - 4.999,20,enough children,120,80,69,158
 101,22,muslim,primary school,nil,19,birth spacing,100,60,44.7,145
 102,28,buddhist,vocational school,<1.000,25,enough children,120,80,48,153
-103,28,buddhist,other,10,25,birth spacing,120,80,53.4,154
 104,29,buddhist,university,5.000 - 9.999,25,birth spacing,100,70,51.9,156
 105,36,buddhist,primary school,nil,17,birth spacing,130,70,61.2,151
 106,29,buddhist,other,5.000 - 9.999,25,birth spacing,110,60,46.5,153
@@ -112,7 +101,6 @@ id,age,relig,ped,income,am,reason,bps,bpd,wt,ht
 118,23,buddhist,primary school,nil,20,enough children,110,80,51.4,159
 119,21,buddhist,vocational school,<1.000,20,enough children,110,70,47.9,156
 120,21,buddhist,primary school,nil,19,enough children,110,80,45.5,150
-121,30,buddhist,other,10,23,birth spacing,110,60,48.2,162
 122,34,buddhist,primary school,nil,27,birth spacing,120,70,43.1,143
 123,32,buddhist,primary school,nil,18,birth spacing,100,70,50.1,149
 124,26,buddhist,primary school,nil,25,enough children,110,80,68.5,160
@@ -120,7 +108,6 @@ id,age,relig,ped,income,am,reason,bps,bpd,wt,ht
 126,27,buddhist,primary school,nil,24,birth spacing,100,60,61.9,145
 128,28,buddhist,vocational school,1.000 - 4.999,22,enough children,110,80,16,585
 129,22,buddhist,high school,<1.000,19,enough children,100,60,59.5,161
-130,26,buddhist,vocational school,10,24,enough children,100,60,49.2,153
 131,21,buddhist,vocational school,1.000 - 4.999,20,enough children,110,60,43.9,148
 132,24,buddhist,primary school,nil,20,enough children,110,70,51,152
 133,27,buddhist,primary school,<1.000,17,enough children,120,70,46,160
@@ -160,7 +147,6 @@ id,age,relig,ped,income,am,reason,bps,bpd,wt,ht
 173,30,buddhist,other,1.000 - 4.999,24,birth spacing,110,60,35.2,148
 174,31,muslim,primary school,<1.000,17,birth spacing,140,90,65,156
 176,36,buddhist,primary school,<1.000,20,enough children,110,70,56,146
-177,32,buddhist,other,10,27,birth spacing,120,80,58.2,154
 178,37,buddhist,primary school,<1.000,22,birth spacing,110,80,63.4,151
 179,30,buddhist,primary school,1.000 - 4.999,20,birth spacing,130,80,53,152
 180,31,buddhist,primary school,nil,17,birth spacing,110,70,58.3,154
@@ -192,7 +178,6 @@ id,age,relig,ped,income,am,reason,bps,bpd,wt,ht
 209,30,buddhist,primary school,<1.000,17,birth spacing,110,70,58,153
 210,19,buddhist,secondary school,nil,16,enough children,130,80,56.5,153
 211,24,buddhist,vocational school,<1.000,20,enough children,110,70,40.2,153
-212,32,buddhist,other,10,24,birth spacing,110,80,54.3,156
 213,27,buddhist,primary school,<1.000,17,enough children,120,70,56.5,154
 214,28,buddhist,primary school,nil,20,birth spacing,120,80,64.8,150
 215,24,buddhist,secondary school,nil,20,enough children,120,80,54.1,156
