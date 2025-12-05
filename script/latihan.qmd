@@ -1,0 +1,312 @@
+---
+format: html
+editor: visual
+---
+
+![](https://raw.githubusercontent.com/ibasgo/materi-webinar/refs/heads/main/image/Introduction.png){fig-align="center"}
+
+# Tahapan Analisis Data dengan R
+
+A. *Read*/*import* data ke dalam R
+
+B. Manajemen Data
+
+C. Analisis Data
+
+Sebelum anda masuk ke tahap pertama, anda perlu melakukan setting tempat anda menyimpan data terlebih dahulu di masing-masing laptop/komputer, dimana caranya adalah
+
+\> `Menu Session` \> `Set Working Directory` \> `Choose Directory` \> `Silakan pilih tempat anda menyimpan data`
+
+Jika sudah dipilih, silakan *copy* dan *paste* di kotak bawah ini dan jalankan.
+
+<div>
+
+``` {#Contoh}
+setwd("E:/Contoh")
+```
+
+</div>
+
+```{r}
+# silakan paste tempat anda menyimpan data di bawah ini dan run cell!
+
+```
+
+# 🕵️Tahap Pertama - ***Read*****/*import* data**
+
+Pada tahap ini, ada akan belajar cara membaca atau memasukkan data ke dalam R. Pada R dataset juga disebut sebagai *dataframe* (kerangka data), ada banyak cara untuk memasukkan data ke dalam R, salah satunya bisa menggunakan *function* bawaan R seperti **read.csv**.
+
+Contohnya adalah sebagai berikut:
+
+```{r}
+# cara membaca data dengan function bawaan R
+data1 <- read.csv('Planning.csv')
+```
+
+Hasil dari menjalankan syntax di atas akan membuat sebuah objek dengan nama `data1` yang berisikan data dari *file* **`Planning.csv`.**
+
+> Pertanyaannya adalah bagaimana jika data yang anda punya bukan file csv?
+
+Ada beberapa point penting yang harus anda ingat diantaranya adalah
+
+1.  Jika data yang digunakan adalah `csv` maka anda dapat menggunakan *function* bawaan R yaitu `read.csv`.
+2.  Jika data yang digunakan adalah data `excel` dan `SPSS` maka anda memerlukan *package* lain yang dapat membaca data tersebut.
+
+Anda dapat menggunakan *packages* berikut untuk membaca data selain `csv`.
+
+1.  Excel: `readxl`
+2.  SPSS, STATA, dan SAS: `haven`
+
+Untuk menggunakan *package* tersebut, anda harus meng-*install*-nya terlebih dahulu, cara *install package* tersebut adalah sebagai berikut.
+
+```{r}
+# jalankan/run cell syntax di bawah ini!
+install.packages('readxl')
+```
+
+Setelah anda jalankan syntax di atas, maka silakan menunggu sampai proses download selesai, jika sudah selesai anda dapat lanjut ke proses selanjutnya.
+
+------------------------------------------------------------------------
+
+### 🧑‍💻Tugas 1 - A
+
+Pada proses di atas anda sudah mencoba *install package* tambahan berupa `readxl`, sekarang tugas anda adalah untuk meng-*install package* `haven`, silakan tuliskan *syntax*-nya di bawah ini.
+
+| *Note: Perhatikan cara install package pada tahap sebelumnya.*
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+
+```
+
+------------------------------------------------------------------------
+
+Proses *install package* hanya perlu dilakukan satu kali saja jika anda belum pernah meng-*install package* tersebut, setelah anda *install* untuk selanjutnya anda tidak perlu *install* lagi, karena *package* tersebut sudah tersimpan di laptop/komputer anda.
+
+Setelah proses *install package* selesai, anda perlu load/panggil package tersebut, caranya adalah membaca package tersebut dengan function bawaan R yaitu `library()` sebelum anda memanggil data yang akan digunakan.
+
+```{r}
+# jalankan/run cell syntax di bawah ini!
+library(readxl)
+```
+
+------------------------------------------------------------------------
+
+### 🧐Tugas 1 - B
+
+Pada proses di atas anda sudah mencoba *load package* `readxl`, sekarang tugas anda adalah untuk *load package* `haven`, silakan tuliskan *syntax*-nya di bawah ini.
+
+| *Note: Perhatikan cara load package pada tahap sebelumnya.*
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+
+```
+
+------------------------------------------------------------------------
+
+Karena anda sudah meng-*install* *package* tambahan untuk membaca data `excel` dan `SPSS`, sekarang anda sudah bisa memasukkan data `excel` dan `SPSS` ke dalam R, caranya adalah sebagai berikut.
+
+```{r}
+data2 <- read_excel('Planning.csv') # memasukkan data excel
+data3 <- read_sav('Planning.sav') # memasukkan data SPSS
+```
+
+------------------------------------------------------------------------
+
+### 🤭Tugas 1 - C
+
+Pada proses di atas anda sudah mempelajari cara memasukkan data `excel` dan `SPSS` ke dalam R, sekarang tugas anda adalah silakan tuliskan ulang syntax yang digunakan untuk memasukkan data tersebut di bawah ini.
+
+| *Note: Perhatikan cara memasukkan data `excel` dan `SPSS` pada tahap sebelumnya.*
+
+```{r}
+# tuliskan ulang syntax sebelumnya di bawah ini dan jalankan!
+
+```
+
+------------------------------------------------------------------------
+
+Sebelum kita masuk ke tahap kedua, anda harus perhatikan pertanyaan berikut ini.
+
+> Bagaimana kita tau jika data kita sudah berhasil kita masukkan ke R?
+
+Kita dapat melihat data yang telah dimasukkan/dipanggil menggunakan *function* bawaan R, diantaranya adalah sebagai berikut.
+
+1.  `View(data1)`, *function* tersebut dapat digunakan untuk melihat *dataframe* dalam bentuk *spreadsheet*.
+2.  `str(data1)`, *function* tersebut dapat digunakan untuk mengetahui tipe variabel yang ada dalam *dataframe*.
+3.  `summary(data1)`, *function* tersebut dapat digunakan untuk melihat nilai minimum, maksimum, median/mean, dan data *missing* dari seluruh variabel yang ada dalam *dataframe*.
+4.  `head(data1)`, *function* tersebut dapat digunakan untuk melihat 5 baris teratas dari keseluruhan responden.
+5.  `tail(data1)`, *function* tersebut dapat digunakan untuk melihat 5 baris terbawah dari keseluruhan responden.
+6.  `names(data1)`, *function* tersebut dapat digunakan untuk melihat nama dari variabel-variabel yang ada dalam *dataframe*.
+
+Silakan cobakan function tersebut di bawah ini.
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+View(data1)
+```
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+
+```
+
+# 😍Tahap Kedua - **Data *Transformation***
+
+Pada tahap ini, anda akan belajar tahap data *transformation* atau mengubah data menjadi suatu hal yang kita inginkan, seperti mengubah kategori sebuah variabel, mengubah variabel numerik menjadi variabel kategorik, mengeluarkan data *missing*, standarisasi nilai dari suatu variabel, dan lain-lainnya. Pada proses pembelajaran ini kita akan mencoba beberapa seperti mengubah kategori suatu variabel dan mengubah variabel numerik menjadi variabel kategorik.
+
+Pada proses ini, kita akan memerlukan *package* baru yaitu `tidyverse`, untuk meng-*install* *package* tersebut caranya sama seperti anda meng-*install* *package* sebelumnya, silakan gunakan cara tersebut untuk meng-*install* *package* `tidyverse`.
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+
+```
+
+Setelah anda berhasil meng-*install* *package* tersebut, silakan *load*/panggil *package* tersebut dengan cara yang sama sewaktu anda *load*/panggil *package* `readxl` dan `haven`.
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+
+```
+
+Selanjutnya kita akan mencoba transformasi data seperti mengubah data numerik menjadi data kategorik dan membuat kategori baru dari kategori yang sudah ada.
+
+## 🏊Transformasi Variabel Numerik menjadi Variabel Kategorik.
+
+Pada tahap ini kita akan mencoba transformasi variabel `age` yang merupakan variabel numerik menjadi variabel kategorik dengan kategori berupa `<18 Tahun` dan `≥18 Tahun`. Cara untuk melakukan transformasi tersebut adalah sebagai berikut.
+
+```{r}
+data_new <- data1 |> # data_new adalah tempat menyimpan variabel yang baru, dengan sumber data dari data1
+    mutate( # mutate digunakan untuk transformasi data
+        k_umur = case_when( # k_umur adalah nama variabel baru, case_when adalah function untuk pengkategorian
+            age < 18 ~ '<18 Tahun', # kategori umur yang pertama
+            age >= 18 ~ '≥18 Tahun' # kategori umur yang kedua
+        )
+    )
+```
+
+## 😎Transformasi Variabel Kategorik
+
+Pada tahap ini kita akan mencoba transformasi variabel `ped` yang merupakan variabel kategorik dengan tujuh kategori menjadi 2 kategori dengan kategori berupa `Pendidikan rendah` dan `Pendidikan tinggi`. Cara untuk melakukan transformasi tersebut adalah sebagai berikut.
+
+```{r}
+data_new <- data1 |> # data_new adalah tempat menyimpan variabel yang baru, dengan sumber data dari data1
+    mutate( # mutate digunakan untuk transformasi data
+        ped_baru = case_when( # ped_baru adalah nama variabel baru, case_when adalah function untuk pengkategorian
+            ped == 'none' | ped == 'primary school' | ped == 'secondary school' ~ 'Pendidikan rendah', # kategori pendidikan yang pertama
+            ped == 'high school' | ped == 'vocational school' | ped == 'university' ~ 'Pendidikan tinggi', # kategori pendidikan yang kedua
+            TRUE ~ 'Data Missing'
+        )
+    )
+```
+
+# 👽Tahap Ketiga - ***Data Analysis***
+
+Setelah anda memanggil data dan melakukan transformasi data, langkah selanjutnya adalah analisis data. Pada tahap ini kita akan belajar mengenai analisis deskriptif. Analisis deskriptif secara epidemiologi adalah menggambarkan data menurut orang (*person*), tempat (*place*), dan waktu (*time*).
+
+Untuk melakukan analisis deskriptif pada variabel numerik kita dapat menggunakan *function* seperti `mean()`, `sd()`, `min()`, `max()`, `median()`, `sum()`, dan `summary()`. Sedangkan untuk variabel kategorik kita dapat menggunakan function seperti `table()`.
+
+## 🔢Analisis Deskriptif Variabel Numerik
+
+Pada tahap ini kita akan mencoba analisis deskriptif pada variabel numerik, variabel yang akan kita gunakan adalah `age`. Cara menggunakan *function* untuk analisis deskriptif variabel numerik adalah sebagai berikut.
+
+```{r}
+# data1 = data yang digunakan, $ = digunakan untuk memilih variabel, age = variabel yang digunakan
+mean(data1$age) # melihat nilai rata-rata dari variabel age
+sd(data1$age) # melihat nilai standar deviasi dari variabel age
+min(data1$age) # melihat nilai minimum dari variabel age
+max(data1$age) # melihat nilai maksimum dari variabel age
+sum(data1$age) # melihat nilai total dari variabel age
+summary(data1$age) # melihat ringkasan statistik untuk variabel age
+```
+
+## 🔡Analisis Deskriptif Variabel Kategorik
+
+Pada tahap ini kita akan mencoba analisis deskriptif pada variabel kategorik, variabel yang akan kita gunakan adalah `relig`. Cara menggunakan *function* untuk analisis deskriptif variabel kategorik adalah sebagai berikut.
+
+```{r}
+# data1 = data yang digunakan, $ = digunakan untuk memilih variabel, age = variabel yang digunakan
+table(data1$relig) # melihat distribusi frekuensi variabel relig
+```
+
+## 📊Analisis Deskriptif dengan Visualisasi
+
+Untuk melakukan analisis deskriptif dengan visualisasi kita dapat menggunakan *function* seperti `hist()`, `boxplot()`, dan `barplot()`.
+
+Berikut adalah contoh visualisasi menggunakan *function* seperti `hist()`, `boxplot()`, dan `barplot()`.
+
+### 📶Contoh 1
+
+```{r}
+# Visualisasi variabel age
+hist(data1$age)
+```
+
+### 📈Contoh 2
+
+```{r}
+# Visualisasi variabel am
+boxplot(data1$am)
+```
+
+### 📉Contoh 3
+
+```{r}
+# visualisasi variabel reason
+barplot(table(data1$reason))
+```
+
+------------------------------------------------------------------------
+
+### Tugas 3 - A
+
+Pada proses di atas anda sudah mencoba analisis deskriptif untuk variabel numerik, sekarang tugas anda adalah untuk melakukan analisis deskriptif pada variabel `bps`, silakan tuliskan *syntax*-nya di bawah ini.
+
+| *Note: Perhatikan cara analisis deskriptif variabel numerik pada tahap sebelumnya.*
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+
+```
+
+### Tugas 3 - B
+
+Pada proses di atas anda sudah mencoba analisis deskriptif untuk variabel kategori, sekarang tugas anda adalah untuk melakukan analisis deskriptif pada variabel `income`, silakan tuliskan *syntax*-nya di bawah ini.
+
+| *Note: Perhatikan cara analisis deskriptif variabel kategorik pada tahap sebelumnya.*
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+
+```
+
+### Tugas 3 - C
+
+Pada proses di atas anda sudah mencoba analisis deskriptif berupa visualisasi, sekarang tugas anda adalah untuk melakukan analisis deskriptif visualisasi pada variabel `wt`, silakan tuliskan *syntax*-nya di bawah ini.
+
+| *Note: Perhatikan cara analisis deskriptif visualisasi pada tahap sebelumnya.*
+
+```{r}
+# tuliskan syntax anda di bawah ini dan jalankan!
+
+```
+
+------------------------------------------------------------------------
+
+Tuliskan kesimpulan yang anda dapatkan dari pembelajaran yang telah dilakukan.
+
+Kesimpulan
+
+:   1.  
+
+    2.  
+
+    3.  
+
+    4.  
+
+    5.  
+
+**Dibuat oleh:**\
+[![](https://img.shields.io/badge/Muhammad%20Ilham%20Basgoro-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ibasgo)
