@@ -1,0 +1,307 @@
+---
+format: 
+    revealjs:
+        transition: slide
+        slide-number: c/t
+        width: 1920
+        height: 1080
+        logo: 'images/Logo.jpg'
+        footer: "[https://www.linkedin.com/in/ibasgo/](https://www.linkedin.com/in/ibasgo/)"
+        echo: false
+        fig-cap-location: bottom
+        theme: 'styles.scss'
+editor: visual
+embed-resources: true
+scrollable: true
+execute: 
+  echo: false
+---
+
+```{r}
+#| message: false
+#| include: false
+
+library(tidyverse)
+library(ggthemes)
+library(palmerpenguins)
+library(gtsummary)
+```
+
+<h1>Introduction to R</h1>
+
+<h2>Analisis Data Sederhana dengan `R` dan `RStudio`</h2>
+
+<hr>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<h3>Muhammad Ilham Basgoro, Tim Andalas Data Analyst Community</h3>
+
+<h3>Sabtu, 06 Desember 2025</h3>
+
+<br>
+
+<h3>
+
+`r fontawesome::fa("linkedin", "darkblue")` <https://www.linkedin.com/in/ibasgo/>
+
+## Dalam Webinar ini
+
+::: incremental
+-   Apa itu R?, kenapa saya harus menggunakan R?, apa R cocok untuk saya?
+-   Kenapa harus *coding*?
+-   Contoh mini proyek analisis data dengan R
+    -   *Importing data*
+    -   *Data Transformation*, dan
+    -   *Data Analysis*
+:::
+
+# Motivasi {background-color="#001E4E"}
+
+## Sebuah Data
+
+Misalkan kita memiliki sebuah data yang ingin kita “olah” dan data kita dibuat dengan format seperti berikut:
+
+:::::: columns
+::: {.column width="60%"}
+![](images/contoh%20data.png){fig-alt="What is that?" fig-align="center" width="100%"}
+:::
+
+:::: {.column width="40%"}
+::: incremental
+-   Baris pertama merupakan nama variabel.
+
+-   Setiap baris berikutnya merupakan responden (1 baris = 1 responden).
+
+-   Setiap kolom merupakan variabel (1 kolom = 1 variabel).
+
+-   Format file yang umum digunakan adalah csv, xlsx, dta, sav, dll.
+:::
+::::
+::::::
+
+. . .
+
+<br/> **Apa yang bisa kita lakukan dengan data tersebut?**
+
+## Apa yang kita mau: **Uji Statistik dan Grafik**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+trial |>
+  tbl_summary(by = trt, include = c(age, grade)) |>
+  add_p()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = species)) +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Body mass and flipper length",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+    x = "Flipper length (mm)",
+    y = "Body mass (g)",
+    color = "Species",
+    shape = "Species"
+  ) +
+  scale_color_colorblind()
+```
+:::
+:::::
+
+## Apa yang sebenarnya kita mau: **Diseminasi**
+
+Yang sebenarnya kita inginkan adalah dapat memahami data dan menyampaikan makna yang didapatkan kepada orang lain (*stakeholder*).
+
+![](images/dashboard.png){fig-alt="dashboard" fig-align="center" width="50%"}
+
+## Apa yang sebenarnya kita mau: **Reproducibility**
+
+Dan kita ingin melakukan hal-hal tersebut dengan cara yang konsisten, transparan, dan dapat diulang (*repeatable*).
+
+```{r}
+#| echo: true
+#| message: false
+#| output: false
+
+# set library
+library(tidyverse)
+library(ggthemes)
+library(palmerpenguins)
+
+# visualize
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+  geom_point(aes(color = species, shape = species)) +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Body mass and flipper length",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+    x = "Flipper length (mm)",
+    y = "Body mass (g)",
+    color = "Species",
+    shape = "Species"
+  ) +
+  scale_color_colorblind()
+```
+
+# `R` dan `RStudio` dapat membantu kita untuk melakukan hal-hal tersebut! {background-color="#001E4E"}
+
+## Tentang R
+
+> ### **Apa itu R?**
+
+::: incremental
+-   Bahasa pemrograman yang dibuat untuk analisis data statistik.
+
+-   Sebuah software statistik yang open source.
+
+-   Memiliki komunitas data analyst yang besar.
+:::
+
+> ### **Dapat digunakan di mana saja?**
+
+. . .
+
+<div>
+
+`r fontawesome::fa("windows", "black")` Windows, `r fontawesome::fa("apple", "black")` Mac, dan `r fontawesome::fa("linux", "black")` Linux
+
+</div>
+
+. . .
+
+> ### Apakah berbayar?
+
+. . .
+
+<div>
+
+Gratis!
+
+</div>
+
+## Kenapa harus R?
+
+Apa yang menjadikan R begitu `spesial`?
+
+`R` dapat melakukan banyak hal, kemudian selalu menyesuaikan dengan *update*-an terbaru statistik. Diikuti dengan adanya peran dari `R` *package* dan *community* yang sangat mendukung pembaruan tersebut.
+
+::: incremental
+-   R *package* adalah sebuah kumpulan *function* yang dibuat untuk melakukan sebuah tugas tertentu.
+
+    -   Seperti membaca file data `excel`, `SAS`, `STATA`, `SPSS`, dll ke dalam `R`.
+
+    -   Melakukan analisis statistik.
+
+    -   Membuat sebuah grafik.
+
+-   Package tersebut di-*share* melalui sebuah repositori sehingga mudah untuk diakses.
+
+    -   seperti repositori `CRAN`.
+:::
+
+## Kenapa Analisis Data Harus *Coding*?
+
+Kenapa kita tidak menggunakan **`Excel`** saja yang sudah banyak fiturnya?
+
+::: incremental
+-   Keterampilan *coding* sangat penting untuk seorang *data analyst*.
+    -   Biasanya bekerja dengan data dengan volume atau variasi yang besar dan kompleks.
+
+    -   Memerlukan *tool* dan teknik khusus untuk mengelola, menganalisa, dan menghasilkan kesimpulan dan fenomena dari sebuah data.
+-   Transformasi Data
+    -   Membersihkan dan merubah struktur isi dan format data sebelum dapat dianalisa lebih lanjut.
+-   Analisis Data
+    -   Menggunakan model statistik dan algoritma *machine learning* untuk menganalisis data dan menghasilkan informasi bernilai tinggi.
+-   Otomatisasi
+    -   Sering bekerja dengan dataset yang besar yang memerlukan tugas yang repetitif.
+-   Kolaborasi
+    -   *Data analyst* bekerja dalam tim dengan profesional lain, seperti *developer*, *ui/ux/visual designer*, dan *project manager*.
+:::
+
+## Apa itu RStudio?
+
+RStudio adalah *Integrated Development Environment* (IDE) yang membuat penggunaan bahasa pemrograman R menjadi lebih mudah dan intuitif.
+
+![](images/RStudio.png){fig-alt="RStudio" fig-align="center" width="60%"}
+
+# Hands On! {background-color="#001E4E"}
+
+## *Planning Dataset*
+
+### Pada praktik ini kita akan menggunakan data:
+
+::: incremental
+-   Data `Planning`, data tersebut merupakan data yang digunakan untuk latihan *cleaning*, *labelling*, dan *recoding* data.
+
+-   Data tersebut bersumber dari *package* `epicalc`.
+
+-   Terdiri dari 251 responden dan 11 variabel.
+
+-   Tersedia dalam bentuk `csv`, `xlsx`, dan `sav`.
+:::
+
+### Pertanyaan penelitian yang akan kita bahas hari ini:
+
+::: incremental
+-   Berapa rata-rata usia pasien klinik keluarga berencana?
+
+-   Apa alasan terbanyak mengikuti program keluarga berencana?
+:::
+
+## Tahapan Analisis Data dengan `R`
+
+A. *Read*/*import* data ke dalam R
+
+::: incremental
+-   Menentukan apakah memerlukan *package* khusus untuk memasukkan data ke dalam `R`.
+:::
+
+B. Manajemen Data
+
+::: incremental
+-   Cek data
+
+-   Membuat variabel baru
+
+-   Filter baris
+
+-   Pilih variabel
+:::
+
+C. Analisis Data
+
+::: incremental
+-   Analisis Deskriptif
+
+-   Visualisasi (*plots*)
+:::
+
+# Silakan Buka File **`latihan.qmd`** {background-color="#001E4E"}
+
+## Resources
+
+::: callout-note
+# Github repository for code
+
+[Slides and plots repo](https://github.com/ibasgo/materi-webinar)
+:::
